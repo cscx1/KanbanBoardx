@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sorted Tasks</title>
+    <!-- Add any necessary CSS or JavaScript -->
+</head>
+<body>
+    <h1>Sorted Tasks</h1>
+    <ul>
+        <!-- Iterate over tasks and display them -->
+        <li th:each="task : ${tasks}">
+            <span th:text="${task.title}"></span> - <span th:text="${task.status}"></span>
+        </li>
+    </ul>
+</body>
+</html>
