@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>My Kanban Board</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevent scroll bars due to fixed background */
+            background-image: url('https://images.pexels.com/photos/1619569/pexels-photo-1619569.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Ensure the background image remains fixed */
+            color: #fff; /* Set text color to white for better readability */
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.7); /* Set header background color to a semi-transparent black */
+            padding: 40px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            margin: 0;
+            font-weight: 700;
+            font-size: 48px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Add text shadow for better contrast */
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding-bottom: 50px;
+        }
+
+        .column {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.7); /* Set column background color to a semi-transparent white */
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            padding: 40px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .column:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        h2 {
+            margin: 0 0 20px 0;
+            font-weight: 700;
+            font-size: 24px;
+            color: #333; /* Set column header text color to a dark shade */
+        }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.7); /* Set footer background color to a semi-transparent black */
+            padding: 20px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to My Kanban Board</h1>
+    </header>
+    
+    <main>
+        <div class="column" id="todo-column" onclick="redirectToTasksPage('todo')">
+            <h2>TODO</h2>
+            <!-- Tasks in TODO column -->
+        </div>
+        <div class="column" id="in-progress-column" onclick="redirectToTasksPage('in-progress')">
+            <h2>In Progress</h2>
+            <!-- Tasks in In Progress column -->
+        </div>
+        <div class="column" id="done-column" onclick="redirectToTasksPage('done')">
+            <h2>Done</h2>
+            <!-- Tasks in Done column -->
+        </div>
+    </main>
+    
+    <footer>
+        <p>© 2024 My Kanban Board</p>
+    </footer>
+
+    <script>
+        // Function to redirect to the tasks page for a specific column
+        function redirectToTasksPage(column) {
+            window.location.href = "/tasks/" + column; // Redirect to the tasks page for the specified column
+        }
+    </script>
+</body>
+</html>
+
